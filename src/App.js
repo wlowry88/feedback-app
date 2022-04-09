@@ -9,7 +9,7 @@ function App(props) {
         <>
             <Header />
             <div className="container">
-                <FeedbackList feedback={feedback}/>
+                <FeedbackList feedback={feedback} />
             </div>
         </>
     )

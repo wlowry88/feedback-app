@@ -17,8 +17,8 @@ function Header({text, bgColor, textColor}) {
 
 Header.defaultProps = {
     text: 'whoknows',
-    bgColor: 'green',
-    textColor: 'blue'
+    bgColor: '',
+    textColor: ''
 }
   
  Header.propTypes = {

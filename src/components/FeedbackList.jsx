@@ -2,7 +2,7 @@ import React from 'react'
 import FeedbackItem from './FeedbackItem'
 import PropTypes from 'prop-types'
 
-function FeedbackList({feedback}) {
+function FeedbackList({feedback,handleDelete}) {
     if (!feedback || feedback.length < 1) {
         return <p>Nada</p>
     } else {
@@ -14,7 +14,7 @@ function FeedbackList({feedback}) {
                     <FeedbackItem 
                         key={item.id}
                         item={item} 
-                        handleDelete={(id) => console.log(id)}
+                        handleDelete={handleDelete}
                     />
                 )
             })}
@@ -23,12 +23,12 @@ function FeedbackList({feedback}) {
     }
 }
 
-FeedbackList.propTypes = {
-    feedback: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        rating: PropTypes.number.isRequired,
-        text: PropTypes.string.isRequired
-    })
-}
+// FeedbackList.propTypes = {
+//     feedback: PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         rating: PropTypes.number.isRequired,
+//         text: PropTypes.string.isRequired
+//     })
+// }
 
 export default FeedbackList

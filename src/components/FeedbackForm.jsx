@@ -1,43 +1,41 @@
-import React from 'react'
-import { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import Card from './shared/Card'
 import Button from './Button'
 import RatingSelect from './RatingSelect'
 
-function FeedbackForm({handleAdd}) {
-    const [text, setText] = useState('');
-    const [rating, setRating] = useState(10);
-    const [btnDisabled, setBtnDisabled] = useState(true);
-    const [message, setMessage] = useState('');
+function FeedbackForm ({ handleAdd }) {
+  const [text, setText] = useState('')
+  const [rating, setRating] = useState(10)
+  const [btnDisabled, setBtnDisabled] = useState(true)
+  const [message, setMessage] = useState('')
 
-    const handleTextChange = (e) => {
-        if (text === '') {
-            setBtnDisabled(true);
-            setMessage(null);
-        } else if (text !== '' && text.trim().length <= 10) {
-            setMessage('Text must be at least 10 characters');
-        } else {
-            setMessage(null);
-            setBtnDisabled(false);
-        }
-        setText(e.target.value);
+  const handleTextChange = (e) => {
+    if (text === '') {
+      setBtnDisabled(true)
+      setMessage(null)
+    } else if (text !== '' && text.trim().length <= 10) {
+      setMessage('Text must be at least 10 characters')
+    } else {
+      setMessage(null)
+      setBtnDisabled(false)
     }
+    setText(e.target.value)
+  }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (text.trim().length > 10) {
-           const newFeedback = {
-               text: text,
-               rating: rating,
-           } 
-           handleAdd(newFeedback);
-           setText('');
-           setBtnDisabled(true);
-        }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (text.trim().length > 10) {
+      const newFeedback = {
+        text,
+        rating
+      }
+      handleAdd(newFeedback)
+      setText('')
+      setBtnDisabled(true)
     }
+  }
 
-    return (
+  return (
         <Card>
             <form onSubmit={handleSubmit}>
                 <h2>How would you rate your service with us?</h2>
@@ -49,7 +47,7 @@ function FeedbackForm({handleAdd}) {
                         placeholder="Write a review"
                         value={text}
                     />
-                    <Button 
+                    <Button
                         type="submit"
                         version=""
                         isDisabled={btnDisabled}>
@@ -58,8 +56,8 @@ function FeedbackForm({handleAdd}) {
                 </div>
                 {message && <div className="message">{message}</div>}
             </form>
-        </Card>     
-    )
+        </Card>
+  )
 }
 
 FeedbackForm.propTypes = {}

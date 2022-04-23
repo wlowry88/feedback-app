@@ -51,7 +51,8 @@ FeedbackList.propTypes = {
     id: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired
-  })
+  }),
+  handleDelete: PropTypes.func
 }
 
 export default FeedbackList

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Card from './shared/Card'
+import PropTypes from 'prop-types'
 import Button from './Button'
 import RatingSelect from './RatingSelect'
 
@@ -60,6 +61,8 @@ function FeedbackForm ({ handleAdd }) {
   )
 }
 
-FeedbackForm.propTypes = {}
+FeedbackForm.propTypes = {
+  handleAdd: PropTypes.func
+}
 
 export default FeedbackForm

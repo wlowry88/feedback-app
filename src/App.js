@@ -3,6 +3,7 @@ import FeedbackData from './data/FeedbackData'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import AboutPage from './pages/AboutPage'
+import Post from './components/Post'
 import FeedbackList from './components/FeedbackList'
 import FeedbackStats from './components/FeedbackStats'
 import FeedbackForm from './components/FeedbackForm'
@@ -37,6 +38,7 @@ function App (props) {
             }>
             </Route>
             <Route path='/about' element={ <AboutPage /> } />
+            <Route path='/post/:id/:name' element={ <Post /> } />
           </Routes>
           <AboutIconLink />
         </div>

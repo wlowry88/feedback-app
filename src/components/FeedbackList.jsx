@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import FeedbackContext from '../context/FeedbackContext'
 
 function FeedbackList () {
-  const {feedback, handleDelete} = useContext(FeedbackContext)
+  const {feedback} = useContext(FeedbackContext)
 
   if (!feedback || feedback.length < 1) {
     return <p>Nada</p>
